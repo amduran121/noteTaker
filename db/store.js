@@ -11,8 +11,8 @@ class Store {
     write(note) {
         return writeFileAsync("db/db.json", JSON.stringify(note))
     }
-    getNotes() {
-        this.read().then(notes => {
+    getNotes() {    
+        return this.read().then(notes => {
             let parsedNotes 
             try {
                 parsedNotes = [].concat(JSON.parse(notes))
@@ -40,5 +40,5 @@ return this.getNotes()
         .then(filteredNotes => this.write(filteredNotes))
     }
 }
-cd 
+
 module.exports = new Store()
